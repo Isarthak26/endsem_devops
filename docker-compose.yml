@@ -1,35 +1,29 @@
 services:
   backend:
     build: ./back
-    container_name: mern_backend
+    container_name: backend
+    ports:
+      - "5001:5001"
     environment:
-      - PORT=5000
-      - MONGO_URI=mongodb://mongo:27017/todos_db
-    depends_on:
-      - mongo
+      - MONGO_URI=mongodb://mongo:27017/todo
 
   frontend:
     build: ./front
-    container_name: mern_frontend
+    container_name: frontend
     depends_on:
       - backend
 
-  mongo:
-    image: mongo:6
-    container_name: mern_mongo
-    volumes:
-      - mongo_data:/data/db
-    ports:
-      - "27017:27017"
-
   nginx:
     build: ./nginx
-    container_name: mern_nginx
+    container_name: nginx
     ports:
       - "80:80"
     depends_on:
       - frontend
       - backend
 
-volumes:
-  mongo_data:
+  mongo:
+    image: mongo
+    container_name: mongo
+    ports:
+      - "27017:27017"
