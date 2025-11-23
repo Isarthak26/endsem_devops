@@ -57,21 +57,7 @@ Persistent volumes
 ⚙️ Architecture
 React --> Nginx --> Backend --> MongoDB
 
-
-
-Frontend static build served from NGINX
-
-
-All API requests routed via /api/*
-
-
-Backend container talks to mongo container
-
-
-Communication via internal Docker network
-
-
-
+```
 📦 Project Structure
 cicd_endsem/
 │
@@ -92,6 +78,21 @@ cicd_endsem/
 │
 ├── docker-compose.yml   # Multi-container orchestration
 └── README.md
+```
+
+
+Frontend static build served from NGINX
+
+
+All API requests routed via /api/*
+
+
+Backend container talks to mongo container
+
+
+Communication via internal Docker network
+
+
 
 
 🐳 Docker — How It Works
@@ -234,7 +235,4 @@ Cloud compatible (EC2 / Azure / GCP)
 ✔ CI/CD via GitHub Actions
 ✔ Production MongoDB (Atlas)
 ✔ JWT Authentication
-✔ Docker Swarm / Kubernetes
-
-If you want, tell me:
-👉 “Write me a more advanced README with badges, screenshots, CI/CD section, and deployment commands.”
+✔ Docker Swarm / Kubernetees
